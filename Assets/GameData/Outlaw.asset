@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Outlaw
   m_EditorClassIdentifier: 
   EnemyName: Outlaw
-  Health: 0
-  damage: 0
+  Health: 100
+  damage: 20

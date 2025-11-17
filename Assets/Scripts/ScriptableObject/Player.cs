@@ -6,5 +6,6 @@ using UnityEngine;
 public class Player : ScriptableObject
 {
     public int health;
-    public int damage;
+    public int GunDamage;
+    public int MeleeDamage;
 }

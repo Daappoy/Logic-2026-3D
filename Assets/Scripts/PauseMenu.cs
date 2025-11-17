@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (GameIsPaused && !(GameManager.currentState == GameManager.GameState.GameOver))
         {
+            InGameUIManager.Instance.GameUI.SetActive(true);
             Debug.Log("Resuming Game");
             Time.timeScale = 1f;
             pauseMenuUI.SetActive(false);
@@ -35,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         }
         else if (!GameIsPaused && !(GameManager.currentState == GameManager.GameState.GameOver))
         {
+            InGameUIManager.Instance.GameUI.SetActive(false);
             Debug.Log("Pausing Game");
             Time.timeScale = 0f;
             pauseMenuUI.SetActive(true);

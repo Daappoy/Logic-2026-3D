@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     public enum GameState
     {
         InGame,
         Paused,
         GameOver
     }
+    public int EnemyKilled;
     public static GameState currentState = GameState.InGame;
-
-    [SerializeField]
-    private GameState initialState = GameState.InGame;
-
+    
     private void Awake()
     {
-        currentState = initialState;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+        currentState = GameState.InGame;
     }
 
 }

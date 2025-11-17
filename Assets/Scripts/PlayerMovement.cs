@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform GroundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    bool isGrounded;
+    public bool isGrounded;
     [Header("Movement Physics")]
     public float jumpHeight = 3f;
     public float speed = 12f;
