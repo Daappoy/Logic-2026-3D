@@ -64,6 +64,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Retry()
     {
+        FindObjectOfType<ScoreManager>().SaveScore();
         GameManager.Instance.currentState = GameManager.GameState.InGame;
         RetryButton.interactable = false;
         SceneLoader.Instance.StartCoroutine(SceneLoader.Instance.TransisionToScene(2, "GameScene"));

@@ -10,6 +10,7 @@ public class EnemyDisplay : CharacterDisplay
     public Slider EnemyHealthbar;
     public Enemy enemyData;
     public Animator EnemyAnimator;
+    private bool isDead = false;
     private void Awake()
     {
         if(enemyData != null)
@@ -32,8 +33,9 @@ public class EnemyDisplay : CharacterDisplay
         Debug.Log("Enemy takes " + damageAmount + " damage.");
         currentHealth -= damageAmount;
         RaiseHealthChanged();
-        if(currentHealth <= 0)
+        if(currentHealth <= 0 && !isDead)
         {
+            isDead = true;
             GameManager.Instance.ScoreIncrease();
             GameManager.Instance.EnemyKilled += 1;
             StartCoroutine(DestroySelfAfterDelay());
