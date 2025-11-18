@@ -190,6 +190,8 @@ MonoBehaviour:
   MasterMixer: {fileID: 24100000, guid: 84acb3b3a15f6ca428b5950702b8f43d, type: 2}
   SFXSource: {fileID: 1962201276}
   BGMSource: {fileID: 1934292372}
+  GunshotSFX: {fileID: 8300000, guid: 0f9f2cae6b7af24419340684fe252029, type: 3}
+  DeathSFX: {fileID: 8300000, guid: a63e22f84710b544e96710a958033fce, type: 3}
 --- !u!4 &139125022
 Transform:
   m_ObjectHideFlags: 0
