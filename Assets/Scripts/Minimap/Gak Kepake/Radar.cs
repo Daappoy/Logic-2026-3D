@@ -1,9 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using UnityEditor.Search;
 using UnityEngine;
-using UnityEngine.Diagnostics;
 
 public class Radar : MonoBehaviour
 {
