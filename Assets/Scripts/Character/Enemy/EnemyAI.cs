@@ -91,6 +91,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Shoot()
     {
+        enemyDisplay.ShootAnimation();
         enemyDisplay.enemyAudioSource.PlayOneShot(AudioManager.AudioInstance.GunshotSFX);
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
         Bullet bulletScript = bullet.GetComponent<Bullet>();

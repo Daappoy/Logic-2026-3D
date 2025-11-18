@@ -2756,11 +2756,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845e57661cf7b2f42b4e2d00e271d509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponScript: {fileID: 547563395}
-  playerData: {fileID: 11400000, guid: ae6d7c8f527bcb04fa6b07c939ed8b10, type: 2}
   MaxHealth: 0
   currentHealth: 0
-  GunDamage: 0
+  damage: 0
+  weaponScript: {fileID: 547563395}
+  playerData: {fileID: 11400000, guid: ae6d7c8f527bcb04fa6b07c939ed8b10, type: 2}
 --- !u!114 &547563395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6114,6 +6114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   scoreManager: {fileID: 0}
+  LoseGameisTriggered: 0
   EnemyKilled: 0
   HealUsed: 0
   UltimateUsed: 0

@@ -9,6 +9,7 @@ public class EnemyDisplay : CharacterDisplay
     public EnemyAI enemyAI;
     public Slider EnemyHealthbar;
     public Enemy enemyData;
+    public Animator EnemyAnimator;
     private void Awake()
     {
         if(enemyData != null)
@@ -24,7 +25,7 @@ public class EnemyDisplay : CharacterDisplay
     {
         OnHealthChanged -= HandleHealthChanged;
     }
-    
+
     [ContextMenu("Take Damage")]
     public void TakeDamage(int damageAmount)
     {
@@ -43,7 +44,8 @@ public class EnemyDisplay : CharacterDisplay
     public IEnumerator DestroySelfAfterDelay()
     {
         enemyAudioSource.PlayOneShot(AudioManager.AudioInstance.DeathSFX);
-        yield return new WaitForSeconds(1f);
+        EnemyAnimator.SetTrigger("Death");
+        yield return new WaitForSeconds(2.2f);
         Destroy(gameObject);
     }
 
@@ -59,5 +61,10 @@ public class EnemyDisplay : CharacterDisplay
     private void Die()
     {
         OnEnemyDie?.Invoke();
+    }
+
+    public void ShootAnimation()
+    {
+        EnemyAnimator.SetTrigger("Fire");
     }
 }
