@@ -10,7 +10,11 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI highScoreText;
 
     void Start()
-    {
+    {   
+        //set cursor 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         OpenMainMenu();
         int highscore = PlayerPrefs.GetInt("HighScore", 0);
         highScoreText.text = highscore.ToString();
