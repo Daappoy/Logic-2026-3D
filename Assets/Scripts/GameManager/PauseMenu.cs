@@ -4,12 +4,15 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
+    public static bool ExitingGameScene = false;
     public GameObject pauseMenuUI;
     public Button[] BackToMainMenuButton;
     public Button RetryButton;
 
     void Start()
     {
+        GameIsPaused = false;
+        ExitingGameScene = false;
         pauseMenuUI.SetActive(false);
     }
 
@@ -23,7 +26,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        if (GameIsPaused && !(GameManager.Instance.currentState == GameManager.GameState.GameOver))
+        if (GameIsPaused && !(GameManager.Instance.currentState == GameManager.GameState.GameOver) && !ExitingGameScene)
         {
             GameIsPaused = false;
             Debug.Log("Resuming Game");
@@ -34,7 +37,7 @@ public class PauseMenu : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        else if (!GameIsPaused && !(GameManager.Instance.currentState == GameManager.GameState.GameOver))
+        else if (!GameIsPaused && !(GameManager.Instance.currentState == GameManager.GameState.GameOver) && !ExitingGameScene)
         {
             GameIsPaused = true;
             Debug.Log("Pausing Game");
@@ -53,11 +56,12 @@ public class PauseMenu : MonoBehaviour
         {
             button.interactable = false;
         }
+        ExitingGameScene = true;
         Time.timeScale = 1f;
         FindObjectOfType<ScoreManager>().SaveScore();
         SceneLoader.Instance.StartCoroutine(SceneLoader.Instance.TransisionToScene(1, "MainMenu"));
         Debug.Log("Loading Main Menu");
-        // GameIsPaused = false;
+        GameIsPaused = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -69,6 +73,6 @@ public class PauseMenu : MonoBehaviour
         RetryButton.interactable = false;
         SceneLoader.Instance.StartCoroutine(SceneLoader.Instance.TransisionToScene(2, "GameScene"));
         Debug.Log("Retrying Game");
-        // GameIsPaused = false;
+        GameIsPaused = false;
     }
 }
